@@ -27,7 +27,7 @@ public class Barang {
         ResultSet rs = st.executeQuery();
         if (!rs.next() || rs.getInt("id_akun") != adm.getId()) {
             // Tidak ditemukan
-            throw new Exception("Tidak ditmukan toko");
+            throw new Exception("Tidak ditmukan barang");
         }
         this.nama = rs.getString("nama");
         this.admn = adm;
