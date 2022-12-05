@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AkunController;
-use App\Models\Akun;
+use App\Http\Controllers\UIController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,19 +16,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// View
+Route::get("/", [UIController::class, 'dashboard']);
+Route::get("/login", [UIController::class, 'login']);
+Route::get("/register", [UIController::class, 'register']);
+Route::get("/logout", [UIController::class, 'logout']);
+Route::get("/barang", [UIController::class, 'barang']);
+Route::get("/toko", [UIController::class, 'toko']);
+Route::get("/barang_toko", [UIController::class, 'barang_toko']);
+
 // Disimpan dalam file app/Http/Controllers/AkunController.php
 Route::get('/akun/register', [AkunController::class, 'register']);
-// Langsung
-Route::get('/akun/register', function () {
-  $username = "kaenova laravel 2";
-  $password = "keren banget";
+// // Langsung
+// Route::get('/akun/register', function () {
+//   $username = "kaenova laravel 2";
+//   $password = "keren banget";
 
-  $akun = new Akun();
-  $akun->username = $username;
-  $akun->password = $password;
-  $akun->save();
-  ddd($akun);
-});
+//   $akun = new Akun();
+//   $akun->username = $username;
+//   $akun->password = $password;
+//   $akun->save();
+//   ddd($akun);
+// });
 
 Route::get('/admin/login', [AdminController::class, 'login']);
 Route::get('/admin/buat_toko', [AdminController::class, 'buat_toko']);

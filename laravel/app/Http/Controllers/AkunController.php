@@ -16,22 +16,20 @@ class AkunController extends Controller
     public function register(Request $request)
     {
         // Gunakan request untuk mendapatkan data yg diinginkan
-
-        // Disini aku hanya hardcode input datanya
-        $username = "kaenova laravel 2";
-        $password = "keren banget";
+        $username = $request->username;
+        $password = $request->password;
 
         $akun = new Akun();
         $akun->username = $username;
         $akun->password = $password;
         $akun->save();
-        ddd($akun);
+        return view('register', ['message' => "berhasil membuat akun"]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+/**
+ * Store a newly created resource in storage.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return \Illuminate\Http\Response
+ */
 }
